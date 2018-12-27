@@ -26,10 +26,12 @@ sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 ```
 cat >> /etc/hosts << EOF
 172.16.0.4 	master
-172.16.0.17 slave1
+172.16.0.17     slave1
 172.16.0.6 	slave2
 EOF
 ```
+以上配置三台机器都配好
+
 **master**
 ```
 echo 'HOSTNAME=master' >> /etc/sysconfig/network
