@@ -72,7 +72,8 @@ ssh-copy-id slave2
 
 **tips：**不要手动做auth文件再scp到每个机器，踩到坑了，没找到原因，用ssh-copy-id没问题
 
-##Ⅳ、安装jdk(
+##Ⅳ、安装jdk
+
 **master**
 ```
 mv /usr/local/src/jdk-6u45-linux-x64.bin /usr/local/
@@ -94,6 +95,7 @@ source /etc/profile
 执行命令java 看输出 review
 
 ##ⅴ、安装hadoop
+
 **master**
 ```
 tar zxvf /usr/local/src/hadoop-1.2.1-bin.tar.gz -C /usr/local/
