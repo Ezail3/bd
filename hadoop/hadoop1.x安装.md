@@ -1,5 +1,4 @@
 **环境**
-
 CentOS 7.5(三台，一主两从)
 ```
 172.16.0.4  master
@@ -15,18 +14,14 @@ total 107604
 -rw-r--r-- 1 root root  38096663 Dec 19 23:23 hadoop-1.2.1-bin.tar.gz
 -rwxr-xr-x 1 root root  72087592 Dec 27 16:33 jdk-6u45-linux-x64.bin
 ```
-
-##Ⅰ、关闭防火墙
-
+## Ⅰ、关闭防火墙
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 setenforce 0
 sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 ```
-
-##Ⅱ、配置host
-
+## Ⅱ、配置host
 ```
 cat >> /etc/hosts << EOF
 172.16.0.4 	master
@@ -76,8 +71,7 @@ ssh-copy-id slave2
 
 **tips：**不要手动做auth文件再scp到每个机器，踩到坑了，没找到原因，用ssh-copy-id没问题
 
-##Ⅳ、安装jdk
-
+## Ⅳ、安装jdk
 **master**
 ```
 mv /usr/local/src/jdk-6u45-linux-x64.bin /usr/local/
@@ -95,11 +89,9 @@ export PATH=$PATH:$JAVA_HOME/bin
 EOF
 source /etc/profile
 ```
-
 执行命令java 看输出 review
 
-##ⅴ、安装hadoop
-
+## ⅴ、安装hadoop
 **master**
 ```
 tar zxvf /usr/local/src/hadoop-1.2.1-bin.tar.gz -C /usr/local/
@@ -152,13 +144,11 @@ slave2
 ```
 export JAVA_HOME=/usr/local/jdk1.6.0_45/
 ```
-
 **将程序目录分发到slave**
 ```
 scp -pr /usr/local/hadoop-1.2.1 slave1:/usr/local/
 scp -pr /usr/local/hadoop-1.2.2 slave1:/usr/local/
 ```
-
 **配置环境变量**
 ```
 cat >> /etc/profile << EOF
@@ -168,7 +158,7 @@ EOF
 source /etc/profile
 ```
 
-##Ⅵ、玩起来
+## Ⅵ、玩起来
 **初始化NameNode**
 ```
 hadoop namenode -format
