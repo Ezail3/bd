@@ -73,6 +73,7 @@ ssh-copy-id slave2
 三台机器互相ssh review
 
 **tips:**
+
 不要手动做auth文件再scp到每个机器，踩到坑了，没找到原因，用ssh-copy-id没问题
 
 ## Ⅳ、安装jdk
