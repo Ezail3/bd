@@ -48,6 +48,7 @@ hostname slave2
 
 ## Ⅲ、SSH免密码通信
 三台机器互ping host review机器是否通
+
 **master**
 ```
 ssh-keygen
