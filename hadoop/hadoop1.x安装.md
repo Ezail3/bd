@@ -1,4 +1,5 @@
 **环境**
+
 CentOS 7.5(三台，一主两从)
 ```
 172.16.0.4  master
@@ -16,13 +17,16 @@ total 107604
 ```
 
 ##Ⅰ、关闭防火墙
+
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 setenforce 0
 sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 ```
+
 ##Ⅱ、配置host
+
 ```
 cat >> /etc/hosts << EOF
 172.16.0.4 	master
