@@ -1,6 +1,6 @@
 **环境**
 
-CentOS 7.5(三台，一主两从)
+CentOS 7.5(3台，一主两从)
 ```
 172.16.0.4  master
 172.16.0.17 slave1
@@ -23,6 +23,7 @@ setenforce 0
 sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 ```
 ## Ⅱ、配置host
+修改hosts配置(3台机器)
 ```
 cat >> /etc/hosts << EOF
 172.16.0.4 	master
@@ -30,7 +31,6 @@ cat >> /etc/hosts << EOF
 172.16.0.6 	slave2
 EOF
 ```
-以上配置三台机器都配好
 
 **master**
 ```
@@ -155,7 +155,7 @@ export JAVA_HOME=/usr/local/jdk1.6.0_45/
 scp -pr /usr/local/hadoop-1.2.1 slave1:/usr/local/
 scp -pr /usr/local/hadoop-1.2.2 slave1:/usr/local/
 ```
-**配置环境变量**
+**配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
 HADOOP_HOME=/usr/local/hadoop-1.2.1
