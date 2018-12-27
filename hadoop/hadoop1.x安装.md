@@ -1,4 +1,5 @@
 **环境**
+
 CentOS 7.5(三台，一主两从)
 ```
 172.16.0.4  master
@@ -44,7 +45,8 @@ hostname slave1
 echo 'HOSTNAME=slave2' >> /etc/sysconfig/network
 hostname slave2
 ```
-##Ⅲ、SSH免密码通信
+
+## Ⅲ、SSH免密码通信
 三台机器互ping host review机器是否通
 **master**
 ```
@@ -99,7 +101,6 @@ cd /usr/local/hadoop-1.2.1 && mkdir tmp
 cd conf
 ```
 **修改6个配置文件**
-
 - masters
 ```
 master
