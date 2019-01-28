@@ -108,7 +108,7 @@ tar zxvf /usr/local/src/hadoop-2.6.1.tar.gz -C /usr/local
 cd /usr/local/hadoop-2.6.1 && mkdir -p tmp dfs/name dfs/data
 cd /usr/local/hadoop-2.6.1/etc/hadoop/
 ```
-**修改8个配置文件**
+**修改7个配置文件**
 - slaves
 ```
 slave1
@@ -154,15 +154,6 @@ slave2
     <property>
         <name>dfs.replication</name>
         <value>2</value>
-    </property>
-</configuration>
-```
-- mapred-site.xml
-```
-<configuration>
-    <property>
-        <name>mapreduce.framework.name</name>
-        <value>yarn</value>
     </property>
 </configuration>
 ```
