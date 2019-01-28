@@ -12,7 +12,7 @@ CentOS 7.5(3台，一主两从)
 ```
 [root@master src]# pwd
 /usr/local/src
-[root@master src]# ll jdk-8u201-linux-x64.tar.gz hadoop-2.6.1.tar.gz 
+[root@master src]# ll hadoop* jdk* 
 -rw-r--r-- 1 root root 197113367 Dec 19 23:25 hadoop-2.6.1.tar.gz
 -rw-r--r-- 1 root root 191817140 Jan 28 16:00 jdk-8u201-linux-x64.tar.gz
 ```
