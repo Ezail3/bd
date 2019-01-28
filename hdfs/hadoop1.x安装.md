@@ -175,11 +175,18 @@ start-all.sh
 ```
 **查看集群状态(三个机器都可以查看)**
 ```
+master
 [root@master hadoop-1.2.1]# jps
 11596 SecondaryNameNode
 12804 Jps
 11415 NameNode
 11692 JobTracker
+
+slave
+[root@slave1 hadoop-1.2.1]# jps
+17924 Jps
+15931 DataNode
+16587 TaskTracker
 ```
 **验证**
 ```
