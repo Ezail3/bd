@@ -182,8 +182,6 @@ start-all.sh
 11692 JobTracker
 ```
 **验证**
-
-可以在浏览器访问50030端口和50070端口看看，前面一个看job，后面一个看集群状态
 ```
 [root@master hadoop-1.2.1]# hadoop fs -ls /
 Found 1 items
@@ -202,6 +200,7 @@ lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
 sync:x:5:0:sync:/sbin:/bin/sync
 ...
 ```
+也可以在浏览器访问50030端口和50070端口看看，前面一个看job，后面一个看集群状态
 **关闭hadoop集群**
 ```
 stop-all.sh
