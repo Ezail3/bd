@@ -10,8 +10,7 @@ CentOS 7.5(3台，一主两从)
 ```
 [root@master src]# pwd
 /usr/local/src
-[root@master src]# ll
-total 107604
+[root@master src]# ll hadoop* jdk*
 -rw-r--r-- 1 root root  38096663 Dec 19 23:23 hadoop-1.2.1-bin.tar.gz
 -rwxr-xr-x 1 root root  72087592 Dec 27 16:33 jdk-6u45-linux-x64.bin
 ```
