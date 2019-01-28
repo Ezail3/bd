@@ -182,6 +182,7 @@ start-all.sh
 11692 JobTracker
 ```
 **验证**
+可以在浏览器访问50030端口和50070端口看看，前面一个看job，后面一个看集群状态
 ```
 [root@master hadoop-1.2.1]# hadoop fs -ls /
 Found 1 items
