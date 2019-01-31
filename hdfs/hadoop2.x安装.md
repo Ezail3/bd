@@ -192,6 +192,21 @@ slave2
         <name>yarn.nodemanager.vmem-check-enabled</name>
         <value>false</value>
     </property>
+	<property>
+		<name>yarn.application.classpath</name>
+		<value>
+		/usr/local/hadoop-2.6.1/etc/hadoop,
+		/usr/local/hadoop-2.6.1/share/hadoop/common/lib/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/common/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/hdfs,
+		/usr/local/hadoop-2.6.1/share/hadoop/hdfs/lib/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/hdfs/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/yarn/lib/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/yarn/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/mapreduce/lib/*,
+		/usr/local/hadoop-2.6.1/share/hadoop/mapreduce/*,
+		/contrib/capacity-scheduler/*.jar</value>
+	</property>
 </configuration>
 ```
 - hadoop-env.sh
