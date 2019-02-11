@@ -193,6 +193,7 @@ slave2
         <name>yarn.nodemanager.vmem-check-enabled</name>
         <value>false</value>
     </property>
+    <!-- hadoop classpath -->
     <property>
     	<name>yarn.application.classpath</name>
 	<value>
