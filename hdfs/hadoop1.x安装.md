@@ -101,7 +101,8 @@ source /etc/profile
 **master**
 ```
 tar zxvf /usr/local/src/hadoop-1.2.1-bin.tar.gz -C /usr/local/
-cd /usr/local/hadoop-1.2.1 && mkdir tmp
+ln -s /usr/local/hadoop-1.2.1 /usr/local/hadoop
+cd /usr/local/hadoop && mkdir tmp
 cd conf
 ```
 **修改6个配置文件**
@@ -119,7 +120,7 @@ slave2
 <configuration>
 	<property>
 		<name>hadoop.tmp.dir</name>
-		<value>/usr/local/hadoop-1.2.1/tmp/</value>
+		<value>/usr/local/hadoop/tmp/</value>
 	</property>
 	<property>
 		<name>fs.default.name</name>
@@ -151,13 +152,13 @@ export JAVA_HOME=/usr/local/jdk1.6.0_45/
 ```
 **将程序目录分发到slave**
 ```
-scp -pr /usr/local/hadoop-1.2.1 slave1:/usr/local/
-scp -pr /usr/local/hadoop-1.2.2 slave1:/usr/local/
+scp -pr /usr/local/hadoop slave1:/usr/local/
+scp -pr /usr/local/hadoop slave1:/usr/local/
 ```
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-HADOOP_HOME=/usr/local/hadoop-1.2.1
+HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 EOF
 source /etc/profile
