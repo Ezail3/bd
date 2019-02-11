@@ -104,8 +104,9 @@ source /etc/profile
 **master**
 ```
 tar zxvf /usr/local/src/hadoop-2.6.1.tar.gz -C /usr/local
-cd /usr/local/hadoop-2.6.1 && mkdir -p tmp dfs/name dfs/data
-cd /usr/local/hadoop-2.6.1/etc/hadoop/
+ln -s /usr/local/hadoop-2.6.1 /usr/local/hadoop
+cd /usr/local/hadoop && mkdir -p tmp dfs/name dfs/data
+cd /usr/local/hadoop/etc/hadoop/
 ```
 **修改7个配置文件**
 - slaves
@@ -122,7 +123,7 @@ slave2
 	</property>
 	<property>
 		<name>hadoop.tmp.dir</name>
-		<value>file:/usr/local/hadoop-2.6.1/tmp/</value>
+		<value>file:/usr/local/hadoop/tmp/</value>
 	</property>
 </configuration>
 ```
@@ -144,11 +145,11 @@ slave2
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>file:/usr/local/hadoop-2.6.1/dfs/name</value>
+        <value>file:/usr/local/hadoop/dfs/name</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file:/usr/local/hadoop-2.6.1/dfs/data</value>
+        <value>file:/usr/local/hadoop/dfs/data</value>
     </property>
     <property>
         <name>dfs.replication</name>
@@ -195,16 +196,16 @@ slave2
     <property>
     	<name>yarn.application.classpath</name>
 	<value>
-	    /usr/local/hadoop-2.6.1/etc/hadoop,
-	    /usr/local/hadoop-2.6.1/share/hadoop/common/lib/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/common/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/hdfs,
-	    /usr/local/hadoop-2.6.1/share/hadoop/hdfs/lib/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/hdfs/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/yarn/lib/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/yarn/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/mapreduce/lib/*,
-	    /usr/local/hadoop-2.6.1/share/hadoop/mapreduce/*,
+	    /usr/local/hadoop/etc/hadoop,
+	    /usr/local/hadoop/share/hadoop/common/lib/*,
+	    /usr/local/hadoop/share/hadoop/common/*,
+	    /usr/local/hadoop/share/hadoop/hdfs,
+	    /usr/local/hadoop/share/hadoop/hdfs/lib/*,
+	    /usr/local/hadoop/share/hadoop/hdfs/*,
+	    /usr/local/hadoop/share/hadoop/yarn/lib/*,
+	    /usr/local/hadoop/share/hadoop/yarn/*,
+	    /usr/local/hadoop/share/hadoop/mapreduce/lib/*,
+	    /usr/local/hadoop/share/hadoop/mapreduce/*,
 	    /contrib/capacity-scheduler/*.jar
 	</value>
     </property>
@@ -220,13 +221,13 @@ export JAVA_HOME=/usr/local/jdk1.8.0_201/
 ```
 **将程序目录分发到slave**
 ```
-scp -pr /usr/local/hadoop-2.6.1/ slave1:/usr/local/
-scp -pr /usr/local/hadoop-2.6.1/ slave2:/usr/local/
+scp -pr /usr/local/hadoop/ slave1:/usr/local/
+scp -pr /usr/local/hadoop/ slave2:/usr/local/
 ```
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-HADOOP_HOME=/usr/local/hadoop-2.6.1
+HADOOP_HOME=/usr/local/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin
 EOF
 source /etc/profile
@@ -273,7 +274,7 @@ sync:x:5:0:sync:/sbin:/bin/sync
 
 **关闭hadoop集群**
 ```
-/usr/local/hadoop-2.6.1/sbin/stop-all.sh
+/usr/local/hadoop/sbin/stop-all.sh
 ```
 
 **tips:**
