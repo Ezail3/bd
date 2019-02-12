@@ -13,7 +13,7 @@ CentOS 7.5(3台，一主两从)
 [root@master src]# pwd
 /usr/local/src
 [root@master src]# ll hadoop* jdk* 
--rw-r--r-- 1 root root 197113367 Dec 19 23:25 hadoop-2.6.1.tar.gz
+-rw-r--r-- 1 root root 197113367 Dec 19 23:25 hadoop-2.6.5.tar.gz
 -rw-r--r-- 1 root root 191817140 Jan 28 16:00 jdk-8u201-linux-x64.tar.gz
 ```
 ## Ⅰ、关闭防火墙
@@ -103,8 +103,8 @@ source /etc/profile
 ## ⅴ、安装hadoop
 **master**
 ```
-tar zxvf /usr/local/src/hadoop-2.6.1.tar.gz -C /usr/local
-ln -s /usr/local/hadoop-2.6.1 /usr/local/hadoop
+tar zxvf /usr/local/src/hadoop-2.6.5.tar.gz -C /usr/local
+ln -s /usr/local/hadoop-2.6.5 /usr/local/hadoop
 cd /usr/local/hadoop && mkdir -p tmp dfs/name dfs/data
 cd /usr/local/hadoop/etc/hadoop/
 ```
