@@ -79,10 +79,9 @@ scp -pr /usr/local/jdk slave2:/usr/local
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-JAVA_HOME=/usr/local/jdk
-JRE_HOME=/usr/local/jdk/jre
-export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
+export JAVA_HOME=/usr/local/jdk
+export JRE_HOME=/usr/local/jdk/jre
+export CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
 EOF
 source /etc/profile
 ```
@@ -227,7 +226,10 @@ scp -pr /usr/local/hadoop/ slave2:/usr/local/
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-HADOOP_HOME=/usr/local/hadoop
+export HADOOP_HOME=/usr/local/hadoop
+EOF
+source /etc/profile
+cat >> /etc/profile << EOF
 export PATH=$PATH:$HADOOP_HOME/bin
 EOF
 source /etc/profile
