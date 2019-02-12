@@ -68,18 +68,18 @@ ssh-copy-id slave2
 ## Ⅳ、安装jdk 1.8
 **master**
 ```
-tar zxvf /usr/local/src/jdk-8u201-linux-x64.tar.gz -C /usr/local
-
-分发至slave
-scp -pr /usr/local/jdk1.8.0_201 slave1:/usr/local/
-scp -pr /usr/local/jdk1.8.0_201 slave2:/usr/local/
+tar zxvf /usr/local/src/jdk-8u172-linux-x64.tar.gz -C /usr/local
+ln -s /usr/local/jdk1.8.0_172/ /usr/local/jdk
+scp -pr /usr/local/jdk slave1:/usr/local
+scp -pr /usr/local/jdk slave2:/usr/local
 ```
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-export JAVA_HOME=/usr/local/jdk1.8.0_201/
-export CLASSPATH=.:$CLASSPATH:$JAVA_HOME/lib
-export PATH=$PATH:$JAVA_HOME/bin
+export JAVA_HOME=/usr/local/jdk
+export JRE_HOME=/usr/local/jdk/jre
+export CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
+PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
 EOF
 source /etc/profile
 ```
@@ -105,7 +105,7 @@ slave2
 <configuration>
 	<property>
 		<name>fs.defaultFS</name>
-		<value>hdfs://172.16.0.4:9000</value>
+		<value>hdfs://10.0.0.6:9000</value>
 	</property>
 	<property>
 		<name>hadoop.tmp.dir</name>
@@ -200,11 +200,21 @@ slave2
 ```
 - hadoop-env.sh
 ```
-export JAVA_HOME=/usr/local/jdk1.8.0_201/
+# The java implementation to use.
+export JAVA_HOME=/usr/local/jdk
 ```
 - yarn-env.sh
 ```
-export JAVA_HOME=/usr/local/jdk1.8.0_201/
+export JAVA_HOME=/user/local/jdk
+if [ "$JAVA_HOME" != "" ]; then
+  #echo "run java in $JAVA_HOME"
+  JAVA_HOME=$JAVA_HOME
+fi
+
+if [ "$JAVA_HOME" = "" ]; then
+  echo "Error: JAVA_HOME is not set."
+  exit 1
+fi
 ```
 **将程序目录分发到slave**
 ```
