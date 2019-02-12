@@ -280,7 +280,7 @@ lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
 sync:x:5:0:sync:/sbin:/bin/sync
 ...
 ```
-也可以在浏览器访问8088端口或者50070端口，观察相关web页面
+也可以在浏览器访问8088端口或者50070端口，观察相关web页面,前者看mapreduce任务，后者看集群状态
 
 **关闭hadoop集群**
 ```
