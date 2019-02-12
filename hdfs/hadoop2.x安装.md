@@ -246,7 +246,7 @@ hadoop namenode -format
 ```
 **启动hadoop集群**
 ```
-/usr/local/hadoop-2.6.1/sbin/start-all.sh
+/usr/local/hadoop/sbin/start-all.sh
 ```
 **查看集群状态(三个机器都可以查看)**
 ```
