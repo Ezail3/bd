@@ -85,8 +85,8 @@ export CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
 EOF
 source /etc/profile
 cat >> /etc/profile << EOF
-> export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-> EOF
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+EOF
 source /etc/profile
 ```
 执行命令java 看输出 review
