@@ -211,7 +211,7 @@ export JAVA_HOME=/usr/local/jdk
 ```
 - yarn-env.sh
 ```
-export JAVA_HOME=/user/local/jdk
+export JAVA_HOME=/usr/local/jdk
 if [ "$JAVA_HOME" != "" ]; then
   #echo "run java in $JAVA_HOME"
   JAVA_HOME=$JAVA_HOME
