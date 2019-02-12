@@ -4,9 +4,9 @@
 
 CentOS 7.5(3台，一主两从)
 ```
-172.16.0.4  master
-172.16.0.17 slave1
-172.16.0.6  slave2
+10.0.0.6 master
+172.16.0.6 slave1
+192.168.0.5 slave2
 ```
 **安装包**
 ```
@@ -28,9 +28,9 @@ sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 修改hosts配置(3台机器)
 ```
 cat >> /etc/hosts << EOF
-172.27.0.6 master
-172.27.0.9 slave1
-172.27.0.16 slave2
+10.0.0.6 master
+172.16.0.6 slave1
+192.168.0.5 slave2
 EOF
 ```
 
@@ -51,29 +51,14 @@ hostname slave2
 ```
 
 ## Ⅲ、SSH免密码通信
-三台机器互ping host review机器是否通
+三台机器互ping host review机器是否通然后依次执行下面命令
+```
+ssh-keygen -t rsa
+ssh-copy-id master
+ssh-copy-id slave1
+ssh-copy-id slave2
+```
 
-**master**
-```
-ssh-keygen -t rsa
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
-**slave1**
-```
-ssh-keygen -t rsa
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
-**slave2**
-```
-ssh-keygen -t rsa
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
 三台机器互相ssh review
 
 **tips:**
