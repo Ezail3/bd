@@ -36,16 +36,19 @@ EOF
 
 **master**
 ```
+echo 'master' > /etc/hostname
 echo 'HOSTNAME=master' >> /etc/sysconfig/network
 hostname master
 ```
 **slave1**
 ```
+echo 'slave1' > /etc/hostname
 echo 'HOSTNAME=slave1' >> /etc/sysconfig/network
 hostname slave1
 ```
 **slave2**
 ```
+echo 'slave2' > /etc/hostname
 echo 'HOSTNAME=slave2' >> /etc/sysconfig/network
 hostname slave2
 ```
@@ -76,10 +79,10 @@ scp -pr /usr/local/jdk slave2:/usr/local
 **配置环境变量(3台机器)**
 ```
 cat >> /etc/profile << EOF
-export JAVA_HOME=/usr/local/jdk
-export JRE_HOME=/usr/local/jdk/jre
-export CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+JAVA_HOME=/usr/local/jdk
+JRE_HOME=/usr/local/jdk/jre
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+CLASSPATH=/usr/local/jdk/jre/lib:/usr/local/jdk/lib
 EOF
 source /etc/profile
 ```
