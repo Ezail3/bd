@@ -10,13 +10,14 @@ CentOS 7.5(3台，一主两从)
 ```
 **安装包**
 ```
-[root@master src]# pwd
+[root@VM_0_6_centos src]# pwd
 /usr/local/src
-[root@master src]# ll hadoop* jdk* 
--rw-r--r-- 1 root root 197113367 Dec 19 23:25 hadoop-2.6.5.tar.gz
--rw-r--r-- 1 root root 191817140 Jan 28 16:00 jdk-8u201-linux-x64.tar.gz
+[root@VM_0_6_centos src]# ll
+total 381792
+-rw-r--r-- 1 root root 199635269 Oct 11  2016 hadoop-2.6.5.tar.gz
+-rw-r--r-- 1 root root 190921804 Feb 12 11:44 jdk-8u172-linux-x64.tar.gz
 ```
-## Ⅰ、关闭防火墙
+## Ⅰ、关闭防火墙(3台)
 ```
 systemctl stop firewalld.service
 systemctl disable firewalld.service
@@ -27,9 +28,9 @@ sed -i '/^SELINUX=/cSELINUX=disabled' /etc/selinux/config
 修改hosts配置(3台机器)
 ```
 cat >> /etc/hosts << EOF
-172.16.0.4 	master
-172.16.0.17     slave1
-172.16.0.6 	slave2
+172.27.0.6 master
+172.27.0.9 slave1
+172.27.0.16 slave2
 EOF
 ```
 
@@ -54,21 +55,21 @@ hostname slave2
 
 **master**
 ```
-ssh-keygen
+ssh-keygen -t rsa
 ssh-copy-id master
 ssh-copy-id slave1
 ssh-copy-id slave2
 ```
 **slave1**
 ```
-ssh-keygen
+ssh-keygen -t rsa
 ssh-copy-id master
 ssh-copy-id slave1
 ssh-copy-id slave2
 ```
 **slave2**
 ```
-ssh-keygen
+ssh-keygen -t rsa
 ssh-copy-id master
 ssh-copy-id slave1
 ssh-copy-id slave2
