@@ -48,29 +48,14 @@ hostname slave2
 ```
 
 ## Ⅲ、SSH免密码通信
-三台机器互ping host review机器是否通
+三台机器互ping host review机器是否通然后依次执行下面命令
+```
+ssh-keygen -t rsa
+ssh-copy-id master
+ssh-copy-id slave1
+ssh-copy-id slave2
+```
 
-**master**
-```
-ssh-keygen
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
-**slave1**
-```
-ssh-keygen
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
-**slave2**
-```
-ssh-keygen
-ssh-copy-id master
-ssh-copy-id slave1
-ssh-copy-id slave2
-```
 三台机器互相ssh review
 
 **tips:**
