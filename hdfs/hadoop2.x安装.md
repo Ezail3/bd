@@ -222,8 +222,13 @@ fi
 ```
 **将程序目录分发到slave**
 ```
-scp -pr /usr/local/hadoop slave1:/usr/local/
-scp -pr /usr/local/hadoop slave2:/usr/local/
+scp -pr /usr/local/hadoop/hadoop-2.6.5 slave1:/usr/local/
+scp -pr /usr/local/hadoop/hadoop-2.6.5 slave2:/usr/local/
+```
+
+**两台slave做好软链**
+```
+ln -s /usr/local/hadoop/hadoop-2.6.5 /usr/local/hadoop/
 ```
 
 **配置环境变量(3台机器)**
