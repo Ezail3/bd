@@ -69,7 +69,7 @@ ssh-copy-id slave2
 ## Ⅳ、安装jdk 1.8
 **master**
 ```
-tar zxvf /usr/local/src/jdk-8u172-linux-x64.tar.gz -C /usr/local
+tar xvf /usr/local/src/jdk-8u172-linux-x64.tar.gz -C /usr/local
 ln -s /usr/local/jdk1.8.0_172/ /usr/local/jdk
 scp -pr /usr/local/jdk slave1:/usr/local
 scp -pr /usr/local/jdk slave2:/usr/local
