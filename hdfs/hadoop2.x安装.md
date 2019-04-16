@@ -13,7 +13,7 @@ CentOS 7.5(3台，一主两从)
 [root@VM_0_6_centos src]# ll
 total 381792
 -rw-r--r-- 1 root root 199635269 Oct 11  2016 hadoop-2.6.5.tar.gz
--rw-r--r-- 1 root root 190921804 Feb 12 11:44 jdk-8u172-linux-x64.tar.gz
+-rw-r--r-- 1 root root 190921804 Feb 12 11:44 jdk-8u201-linux-x64.tar.gz
 ```
 ## Ⅰ、关闭防火墙(3台)
 ```
@@ -69,8 +69,8 @@ ssh-copy-id slave2
 ## Ⅳ、安装jdk 1.8
 **master**
 ```
-tar xvf /usr/local/src/jdk-8u172-linux-x64.tar.gz -C /usr/local
-ln -s /usr/local/jdk1.8.0_172/ /usr/local/jdk
+tar xvf /usr/local/src/jdk-8u201-linux-x64.tar.gz -C /usr/local
+ln -s /usr/local/jdk1.8.0_201/ /usr/local/jdk
 scp -pr /usr/local/jdk slave1:/usr/local
 scp -pr /usr/local/jdk slave2:/usr/local
 ```
